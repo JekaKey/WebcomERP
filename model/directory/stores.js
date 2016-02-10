@@ -42,4 +42,3 @@ TabularTables.Stores = new Tabular.Table({
     ]
 });
 
-
