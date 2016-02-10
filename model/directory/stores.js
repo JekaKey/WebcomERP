@@ -1,35 +1,31 @@
 Stores = new Mongo.Collection("stores");
 
-Stores.attachSchema(new SimpleSchema({
-    title: {
-        type: String,
-        label: "Наименование",
-        max: 200
-    },
-    adress: {
-        type: String,
-        label: "Адрес"
-    },
-    createdAt: {
-        type: Date,
-        autoValue: function () {
-            if (this.isInsert) {
-                return new Date();
-            } else if (this.isUpsert) {
-                return {$setOnInsert: new Date()};
-            } else {
-                this.unset();  // Prevent user from supplying their own value
-            }
-        },
-        denyUpdate: true
-    },
-    deletedAt: {
-        label: "Удален",
-        type: Date,
-        optional: true
-    }
+//Stores.attachSchema(new SimpleSchema({
+//    title: {
+//        type: String,
+//        label: "Наименование",
+//        max: 200
+//    },
+//    adress: {
+//        type: String,
+//        label: "Адрес"
+//    }
+//}));
 
-}));
+Store = Astro.Class({
+    name: 'Store',
+    collection: Stores,
+    fields: {
+        title: {
+            type: 'string',
+            validator: Validators.required('', 'Необходимо заполнить Наименование!')
+        },
+        adress: {
+            type: 'string',
+            validator: Validators.required('', 'Необходимо заполнить Адрес!')
+        }
+    }
+});
 
 TabularTables = {};
 
@@ -42,10 +38,8 @@ TabularTables.Stores = new Tabular.Table({
         {
             tmpl: Meteor.isClient && Template.editButton,
             width: '5%'
-        },
-        {
-            tmpl: Meteor.isClient && Template.deleteButton,
-            width: '5%'
         }
     ]
 });
+
+
