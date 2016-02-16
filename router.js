@@ -12,32 +12,29 @@ Router.route('/', {
 
 /******* Справочники ********/
 
-Router.route('/brands', {
-    name: 'brands',
-    layoutTemplate: 'main',
-    template: 'brands'
+Router.route('/directory/brands', function () {
+    this.render('directoryBrands');
+}, {
+    name: 'directoryBrands'
 });
 
-Router.route('/objects', {
-    name: 'objects',
-    layoutTemplate: 'main',
-    template: 'objects'
+
+Router.route('/directory/objects', function () {
+    this.render('directoryObjects');
+}, {
+    name: 'directoryObjects'
 });
 
-Router.route('/stores', {
-    name: 'stores',
-    layoutTemplate: 'main',
-    template: 'stores'
+Router.route('/directory/stores', function () {
+    this.render('directoryStores');
+}, {
+    name: 'directoryStores'
 });
 
 
 /******* Журналы ********/
-
 Router.route('/journals/invoices', function () {
-
-    console.log('test');
     this.render('journals.invoices');
-
 }, {
     name: 'journals.invoices'
 });

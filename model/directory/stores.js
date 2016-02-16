@@ -27,9 +27,8 @@ Store = Astro.Class({
     }
 });
 
-TabularTables = {};
 
-TabularTables.Stores = new Tabular.Table({
+TabularTablesStores = new Tabular.Table({
     name: "Stores",
     collection: Stores,
     autoWidth: false,
@@ -41,4 +40,5 @@ TabularTables.Stores = new Tabular.Table({
         }
     ]
 });
+
 

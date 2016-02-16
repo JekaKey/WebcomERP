@@ -1,7 +1,7 @@
 var StoresTracker = new Tracker.Dependency();
 var currentSelect;
 
-Template.stores.helpers({
+Template.directoryStores.helpers({
     selector: function () {
         return {};
     },
@@ -33,7 +33,7 @@ Template.stores.helpers({
 
 
 //События
-Template.stores.events({
+Template.directoryStores.events({
     'click #addStore': function () { //Показываем окно добавления
         $('#insertStoreWindow').modal('show');
 
