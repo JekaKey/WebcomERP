@@ -34,7 +34,21 @@ Router.route('/directory/stores', function () {
 
 /******* Журналы ********/
 Router.route('/journals/invoices', function () {
-    this.render('journals.invoices');
+    this.render('journalsInvoices');
 }, {
-    name: 'journals.invoices'
+    name: 'journalsInvoices'
+});
+
+
+/******* Документы ********/
+
+
+//Приходная накладная
+Router.route('/documents/invoice/:_id', function () {
+
+    console.log('Документ', this.params._id);
+
+    this.render('documentsInvoice');
+}, {
+    name: 'documentsInvoice'
 });
